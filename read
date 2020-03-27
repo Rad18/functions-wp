@@ -1,1 +1,38 @@
+ <?php
+add_action('woocommerce_archive_description', function () {
+    $term = get_queried_object();
+    if(get_field('youtube_review', $term)) {
+        return;
+    }
 
+    global $wp_query;
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    if ($paged < 2) {
+
+        ?>
+
+<?php $video_background_img = 'https://online-kassa.ru/wp-content/uploads/2018/07/banner_video_online-kassa.png'; // get_field('video_background_img', 'product_cat_'.$wp_query->get_queried_object_id()); ?>
+<?php $video_url = 'https://www.youtube.com/watch?v=-aLm9M9-vHs&amp;autoplay=0&amp;rel=0&amp;controls=1&amp;showinfo=0'; // get_field('video_url', 'product_cat_'.$wp_query->get_queried_object_id()); ?>
+<?php $banner_small_text = 'Посмотрите короткое видео:' //get_field('banner_small_text', 'product_cat_'.$wp_query->get_queried_object_id()); ?>
+<?php $banner_title = 'почему нам доверяют' //get_field('banner_title', 'product_cat_'.$wp_query->get_queried_object_id()); ?>
+
+        <div class="cat-video-banner cor-cat-banner"
+             style="
+                background-image: url(/img/banner-cat.png);display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-align: center;-ms-flex-align: center;align-items: center;-ms-flex-pack: distribute;justify-content: space-around; height: 70px;padding: 4px 20px 0;overflow: hidden;
+             ">
+            <a href="/kupit/5/">
+                <div class="">
+                    <div class="cat-video-banner__title" 
+                            style="text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);color: #fff !important;font-size: 17px;font-weight: 700;margin-top: -8px;line-height: 24px;">
+                        Почему нам доверяют? Давайте знакомиться!
+                    </div>
+                </div>
+            </a>
+        </div>
+
+<?php
+
+    }
+}, 4);
+
+?>
