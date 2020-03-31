@@ -9,7 +9,7 @@ add_action('woocommerce_archive_description', function () {
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     if ($paged < 2) {
 
-        ?>
+    ?>
 
 <?php $video_background_img = 'https://online-kassa.ru/wp-content/uploads/2018/07/banner_video_online-kassa.png'; // get_field('video_background_img', 'product_cat_'.$wp_query->get_queried_object_id()); ?>
 <?php $video_url = 'https://www.youtube.com/watch?v=-aLm9M9-vHs&amp;autoplay=0&amp;rel=0&amp;controls=1&amp;showinfo=0'; // get_field('video_url', 'product_cat_'.$wp_query->get_queried_object_id()); ?>
@@ -29,7 +29,6 @@ add_action('woocommerce_archive_description', function () {
                 </div>
             </a>
         </div>
-
 <?php
 
     }
