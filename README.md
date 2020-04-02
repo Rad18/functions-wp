@@ -1,2 +1,1 @@
-# functions-wp
-some code
+The files of WordPress define many useful PHP functions. Some of the functions, known as Template Tags, are defined especially for use in WordPress Themes. There are also some functions related to actions and filters (the Plugin API), which are therefore used primarily for developing Plugins. The rest are used to create the core WordPress functionality.
