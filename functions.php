@@ -51,6 +51,7 @@ add_action('woocommerce_product_tabs', function () {
                     }, 8);
                     // add_action('woocommerce_product_tabs', 'the_content', 9);
 
+			// replace src
                     function echo_1(){
                         ob_start();
                         the_content();
@@ -62,13 +63,10 @@ add_action('woocommerce_product_tabs', function () {
                         $sVart5  = str_replace('http://zzz.ru/', 'src="/', $sVart4);
                         $sNart   = str_replace('http://', 'https://', $sVart5);
 
-
                         echo $sNart;
                     }
 
                     add_action( 'woocommerce_product_tabs', 'echo_1' );
-
-
 
                 }
 
