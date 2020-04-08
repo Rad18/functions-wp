@@ -1,5 +1,10 @@
 <?
 
+//Добавляем дополнительный размер изображений
+add_image_size( 'sidebar-thumb', 120, 120, true ); // Hard Crop Mode
+add_image_size( 'homepage-thumb', 220, 180 ); // Soft Crop Mode
+add_image_size( 'singlepost-thumb', 590, 9999 ); // Unlimited Height Mode
+
 //табы: начало
 add_action('woocommerce_product_tabs', function () {
     //добавить проверку наличия информации
