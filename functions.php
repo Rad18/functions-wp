@@ -369,3 +369,28 @@ $query = $wpdb->prepare("
 		if ($results) return $results[0]->aggregate_rating;
 		return 0;
 }
+
+
+
+
+//Отключаем поиск по сайту
+
+function fb_filter_query( $query, $error = true ) {
+if ( is_search() ) {
+$query->is_search = false;
+$query->query_vars[s] = false;
+$query->query[s] = false;
+// to error
+if ( $error == true )
+$query->is_404 = true;
+}
+}
+add_action( 'parse_query', 'fb_filter_query' );
+add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
+
+
+//Меняем «Читать далее» в анонсах на свой текст
+function modify_read_more_link() {
+return '<a class="more-link" href="' . get_permalink() . '">Your Read More Link Text</a>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
