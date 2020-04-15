@@ -1,5 +1,15 @@
 <?
 
+// Разрешаем загрузку дополнительных типов файлов
+function my_myme_types($mime_types){
+$mime_types['svg'] = 'image/svg+xml'; //Adding svg extension
+$mime_types['psd'] = 'image/vnd.adobe.photoshop'; //Adding photoshop files
+return $mime_types;
+}
+add_filter('upload_mimes', 'my_myme_types', 1, 1);
+
+
+
 //Добавляем дополнительный размер изображений
 add_image_size( 'sidebar-thumb', 120, 120, true ); // Hard Crop Mode
 add_image_size( 'homepage-thumb', 220, 180 ); // Soft Crop Mode
